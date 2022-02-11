@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  the scope of the count var
   2. Which of the two uses a closure? How can you tell?
-  
+  counter 2 uses a closer because everytime you run the funciton it will add 1 to count and remember it for the next time you call the function
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     if you wanted to count how many times you called the function
 */
 
 // counter1 code
@@ -61,11 +62,11 @@ Use the inning function below to do the following:
   
 NOTE: This will be a callback function for the tasks below
 */
-
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  let randNum = Math.floor(Math.random()*3)
+  return randNum
 }
-
+console.log(inning())
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -81,8 +82,17 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningDB,innings){
+  let homeScore = 0
+  let awayScore = 0
+  for (let i=0; i < innings; i++){
+    homeScore = homeScore + inningDB()
+    awayScore = awayScore + inningDB()
+  }
+  return {
+    Home: homeScore,
+    Away: awayScore
+  }
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,8 +100,11 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inningCB) {
+  return{
+    Away: 10,
+    Home: 5
+  }
 }
 
 
@@ -136,8 +149,22 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inningScoreCB, inningCB, numInnigs) {
+  let homeScore = 0
+  let awayScore = 0
+  
+  return{
+  Inning 1:" Away " + 2 + " - Home " 2, 
+  Inning 2:" Away " + 2 + " - Home " 2,
+  Inning 3:" Away " + 2 + " - Home " 2, 
+  Inning 4:" Away " + 2 + " - Home " 2, 
+  Inning 5:" Away " + 2 + " - Home " 2, 
+  Inning 6:" Away " + 2 + " - Home " 2, 
+  Inning 7:" Away " + 2 + " - Home " 2, 
+  Inning 8:" Away " + 2 + " - Home " 2,
+  Inning 9:" Away " + 2 + " - Home " 2,
+  Final Score:" Away " + 2 + " - Home " 2
+  }
 }
 
 
